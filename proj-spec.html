@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heist at the Museum - Game Project</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+
+    body {
+      font-family: 'Marcellus', serif;
+      background-color: #f6f1eb;
+      color: #3e2f1c;
+      margin: 0;
+      padding: 20px;
+      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    }
+
+    h1, h2, h3 {
+      color: #5e3c1f;
+      border-left: 5px solid #bfa37c;
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background-color: #fff8ee;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(62, 47, 28, 0.2);
+    }
+
+    ul {
+      list-style: square;
+      margin-left: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    .category {
+      margin-top: 10px;
+    }
+
+    .milestone-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.95em;
+    }
+
+    .milestone-table th, .milestone-table td {
+      border: 1px solid #cbb292;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .milestone-table th {
+      background-color: #e7d7c1;
+    }
+
+    .milestone-table td {
+      background-color: #fcf8f2;
+    }
+
+    a {
+      color: #8a6e3e;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Heist at the Museum - Game Project</h1>
+
+  <section>
+    <h2>Project Description</h2>
+    <p><strong>Game Type:</strong> Capture the Flag Meets Night at the Museum!</p>
+    <p><strong>Description:</strong> A 3v1 game where thieves attempt to steal artifacts from a museum and return them to their countries of origin while the security guard tries to stop them (at least until their shift ends).</p>
+    <p><strong>Win Conditions:</strong></p>
+    <ul>
+      <li>Thieves win by escaping the museum with the artifact they're targeting</li>
+      <li>Security guard wins if the artifact is still in its place by the end of their shift</li>
+    </ul>
+    <p><strong>Unique Aspects:</strong></p>
+    <ul>
+      <li>Unique storyline: returning stolen artifacts to their countries of origin</li>
+      <li>Teamwork among thieves to evade detection.</li>
+      <li>Security guard with unique, possibly supernatural abilities.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Game Features</h2>
+    <h3>Must Have</h3>
+    <ul>
+      <li>Museum with main room and two smaller rooms, all filled with artifacts</li>
+      <li>NPCs that roam around the museum, thieves can blend in with them to evade the security guard</li>
+      <li>Security guard has different items to help them catch the thieves: taser gun (ranged), baton (melee), etc.</li>
+      <li>Security guard has special abilities (e.g. see thief location).</li>
+      <li>Thieves can pick up artifact they're targeting</li>
+    </ul>
+    <h3>Would Be Really Nice</h3>
+    <ul>
+      <li>Thieves can change appearance.</li>
+      <li>Target Artifact is fragile and can be broken (complicates win conditions)</li>
+      <li>Storyline continuity, where each round, the security guard is essentially taking over for the security guard from the previous round, so now they're the ones who have to deal with the thieves until the next shift</li>
+      <li>Thieves have unique roles, each with their own special abilities/items.</li>
+    </ul>
+    <h3>Cool But Only If Ahead of Schedule</h3>
+    <ul>
+      <li>Alive artifacts that can move on their own</li>
+      <li>Character customization.</li>
+      <li>Artifact fragility applied to all items.</li>
+      <li>Thieves have in-game communication system.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Group Management</h2>
+    <ul>
+      <li><strong>Roles:</strong> Group collaboration with no specific leadership positions.</li>
+      <li><strong>Decision Making:</strong> By consensus.</li>
+      <li><strong>Communication:</strong> Discord and Lettucemeet.</li>
+      <li><strong>Schedule Monitoring:</strong> See whether weekly goals are being met, if not reassign tasks and/or weekend work. In extreme cases, adjust milestones to accomodate delay.</li>
+      <li><strong>Status Reports:</strong> Rotational responsibility among team members.</li>
+      <li><strong>Weekly Meeting Time:</strong> Wednesdays at 6 PM.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Project Development</h2>
+    <p><strong>Roles:</strong></p>
+    <ul>
+      <li>Artist: Heather Jang</li>
+      <li>Graphics: Sue-Hyun Hong</li>
+      <li>Networking: April Hsu, Angie Nguyen</li>
+      <li>Gameplay: Jessica Yang, Shuyang Zhang, Jessie Ouyang</li>
+    </ul>
+    <p><strong>Tools:</strong> VSCode, OpenGL, Blender, Maya (maybe), Git</p>
+    <p><strong>Testing:</strong></p>
+    <ul>
+      <li>Manual playtests after each change</li>
+      <li>Compatibility testing on final presentation machine</li>
+      <li>Unit testing and integration testing for mechanics and UI</li>
+    </ul>
+    <p><strong>Documentation:</strong></p>
+    <ul>
+      <li>Internal: Code comments and a webpage document.</li>
+      <li>External: Separate documentation webpage on the project site.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Project Schedule</h2>
+    <table class="milestone-table">
+      <thead>
+        <tr>
+          <th>Week</th>
+	  <th>Team</th>
+          <th>Artist</th>
+          <th>Graphics</th>
+          <th>Networking</th>
+          <th>Gameplay</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Week 1</td><td colspan="5">N/A</td></tr>
+	<tr><td>Week 2</td><td></td><td>Sketches</td><td>Cube input</td><td>Echo server, start full client/server</td><td>Movement, control logic</td></tr>
+	<tr><td>Week 3</td><td></td><td>Low-poly base meshes</td><td>Model loading</td><td>Finish client/server</td><td>Security guard abilities</td></tr>
+	<tr><td>Week 4</td><td></td><td>UV unwrap/color</td><td>Collisions/physics</td><td>Integrate graphics client</td><td>Player interactions</td></tr>
+	<tr><td>Week 5</td><td>MVP</td><td>Rig/animations</td><td>Texture mapping</td><td></td><td>Artifact interaction, AI</td></tr>
+	<tr><td>Week 6</td><td></td><td>Museum base mesh</td><td>Skinning</td><td></td><td>Restart logic, testing setup</td></tr>
+	<tr><td>Week 7</td><td></td><td>UV museum</td><td>Keyframe animations</td><td></td><td>Game flow finalization</td></tr>
+	<tr><td>Week 8</td><td></td><td>In-game items mesh</td><td>Optimization</td><td></td><td>Alpha testing</td></tr>
+	<tr><td>Week 9</td><td>Beta Testing</td><td>UV items, VFX</td><td>Lighting</td><td>Beta testing</td><td>Beta testing</td></tr>
+        <tr><td>Week 10</td><td colspan="5">Testing + Demo</td></tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
+
