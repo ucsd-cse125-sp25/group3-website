@@ -20,3 +20,15 @@
     line-height: 200%;
     padding: 0 2% 0 2%;
 }
+
+.weekly-images {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    background-color: #b9b0a3;
+}
+
+.weekly-images img {
+    max-width: 100%;
+}
