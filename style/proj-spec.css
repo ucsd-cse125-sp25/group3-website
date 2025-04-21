@@ -1,0 +1,24 @@
+.category {
+    margin-top: 10px;
+}
+
+.milestone-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.95em;
+}
+
+.milestone-table th, .milestone-table td {
+    border: 1px solid #cbb292;
+    padding: 8px;
+    text-align: left;
+}
+
+.milestone-table th {
+    background-color: #e7d7c1;
+}
+
+.milestone-table td {
+    background-color: #fcf8f2;
+}
