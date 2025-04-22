@@ -20,11 +20,11 @@ jobs:
           chmod 600 ~/.ssh/github-actions
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy via SCP
+      - name: Deploy via rsync
         run: |
-          scp -i ~/.ssh/github-actions -r ./ ${SSH_USERNAME}@${SSH_HOST}:/var/www/html/class/cse125/www/2025/cse125g3/group3-website
-
+          rsync -avz --exclude=".git" -e "ssh -i ~/.ssh/github-actions" ./ ${SSH_USERNAME}@${SSH_HOST}:/var/www/html/class/cse125/www/2025/cse125g3/group3-website
         env:
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
+
 
