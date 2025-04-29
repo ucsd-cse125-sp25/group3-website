@@ -17,7 +17,7 @@ jobs:
         run: |
           mkdir -p $HOME/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/github-actions"
-          chmod 600 ~/.ssh/github-actions
+          chmod 600 "$HOME/.ssh/github-actions"
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> "$HOME/.ssh/known_hosts"
 
       - name: Deploy via rsync
