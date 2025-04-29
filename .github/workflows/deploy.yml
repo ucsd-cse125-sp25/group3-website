@@ -15,14 +15,14 @@ jobs:
 
       - name: Set up SSH
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-actions
+          mkdir -p $HOME/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/github-actions"
           chmod 600 ~/.ssh/github-actions
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> "$HOME/.ssh/known_hosts"
 
       - name: Deploy via rsync
         run: |
-          rsync -avz --no-perms --no-owner --no-group --exclude=".git" -e "ssh -i ~/.ssh/github-actions" ./ ${SSH_USERNAME}@${SSH_HOST}:/var/www/html/class/cse125/www/2025/cse125g3/group3-website
+          rsync -avz --no-perms --no-owner --no-group --exclude=".git" -e "ssh -i $HOME/.ssh/github-actions" ./ ${SSH_USERNAME}@${SSH_HOST}:/var/www/html/class/cse125/www/2025/cse125g3/group3-website
         env:
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
