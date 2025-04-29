@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuyang Zhang - Week 3 Report</title>
+    <link rel="stylesheet" href="../../style/report.css">
+</head>
+<body>
+    <div class="report-main">
+        <div class="report-header">
+            <h1>Shuyang Zhang - Week 3 Report</h1>
+        </div>
+        <div class="report-subsection">
+            <h2>What were your concrete goals for the week?</h2>
+            <p>
+                For this week, my concrete goals are create a minimap, and add interactions between characters and artifacts
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What goals were you able to accomplish?</h2>
+            <p>
+                - add a minimap at the left-up corner that is a orthogonal camera of the map <br>
+                
+                - add interactions between characters and artifact, now the theives could grab the artifact.<br>
+                
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>If the week went differently than you had planned, what were the reasons?</h2>
+            <p>
+                I initially plan to also add UI along with the interaction(like a hint shows "press F to grab" when get close enough), 
+                but I am not familiar with Imgui, that took me a long time to understand it, so currently there's no UI hint.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What are your specific goals for the next week?</h2>
+            <p>
+              - add UIs with interactions.<br>
+                
+              - adjust the minimap so that it would be the top view fixed with character center, and could change with the character <br>
+                
+              - work with networking people to finalized some abilities that need multiplayers support.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What did you learn this week, if anything (and did you expect to learn it)?</h2>
+            <p>
+              - I learnt some knowledge of the ImGui, but still need to read more<br>
+                
+              - I learnt how to add a second camera to the map like works as an orthogonal camera that could use for minimap
+        </div>
+        <div class="report-subsection">
+            <h2>What is your individual morale?</h2>
+            <p>
+              A bit stressed because other courses' assignments and midterms, but also excited with following work.
+        </div>
+    </div> 
+</body>
+</html>
