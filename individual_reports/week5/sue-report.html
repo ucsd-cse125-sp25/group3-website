@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sue - Week 5 Report</title>
+    <link rel="stylesheet" href="../../style/report.css">
+</head>
+<body>
+    <div class="report-main">
+        <div class="report-header">
+            <h1>Sue - Week 5 Report</h1>
+        </div>
+        <div class="report-subsection">
+            <h2>What were your concrete goals for the week?</h2>
+            <p>
+                My concrete goals were to get building through CMake when using the Assimp library to work without manually copying the .dll, and to get uv-mapped textures working. Then, if I had more time, to work on refining the code for collisions.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What goals were you able to accomplish?</h2>
+            <p>
+                I was able to get the CMake with Assimp working by having a command after building to copy over the .dll if on a Windows computer. UV-mapped textures are functional, and I reorganized how meshes would be organized, individual meshes are now collected under a model class, which moves the meshes together, while the scene class holds a collection of models in one structure (this is aimed to help collisions).
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>If the week went differently than you had planned, what were the reasons?</h2>
+            <p>
+                Implementing textures were simpler than I had expected, though I am a bit concerned for whether the current library I am using to load in the texture data from a file path is robust enough to use later, as stb_image is quite a small library.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What are your specific goals for the next week?</h2>
+            <p>
+                My specific goals for the next week are to get working on animations -- for which I've portioned two weeks, I will likely be working with getting a skeleton and its related classes created, then getting that skeleton to move to match a loaded animation. If I have more time, I will likely be working on getting the mesh to move to match the skeleton (skinning) which would mean I would be looking into where the weight values are stored in Assimp.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What did you learn this week, if anything (and did you expect to learn it)?</h2>
+            <p>
+                I learned about how texture mapping works and some details on how OpenGL's binding and uniform functions work. I also, once again, learned about CMake and its many quirks.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What is your individual morale?</h2>
+            <p>
+                My morale is better than last week, though I am a bit nervous about how animations are going to go, as it seems like a pretty daunting task.
+            </p>
+        </div>
+    </div> 
+</body>
+</html>
