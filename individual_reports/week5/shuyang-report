@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuyang - Week 5 Report</title>
+    <link rel="stylesheet" href="../../style/report.css">
+</head>
+<body>
+    <div class="report-main">
+        <div class="report-header">
+            <h1>Shuyang - Week 5 Report</h1>
+        </div>
+        <div class="report-subsection">
+            <h2>What were your concrete goals for the week?</h2>
+            <p>
+                My goal for this week is to start the re-enter mini-game
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What goals were you able to accomplish?</h2>
+            <p>
+                I make the background picture(with the help from chatGPT) <br>
+                I create a new window for the mini-game and loaded the background picture and initialize the pixelized-charater.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>If the week went differently than you had planned, what were the reasons?</h2>
+            <p>
+                I originally want to fix some bugs of grabing things and mini-map, but the files involved has some confliction with person working on imGui,
+                so I decide to start the mini-game first, but the mini-game involved with SFML, which I have not touched, and it took me a lot of time to initialize it.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What are your specific goals for the next week?</h2>
+            <p>
+                1. continue with the re-entering mini-game <br>
+                2. fix the bugs with grabing item and mini-camera <br>
+                3. working with UI together with other gameplay people <br>
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What did you learn this week, if anything (and did you expect to learn it)?</h2>
+            <p>
+                I learnt some knowledge about SFML that now I know how to import a 2D picture into a 3D window, and add the character Sprite to control it
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What is your individual morale?</h2>
+            <p>
+                Good. I want to spend more time on the game next week as I have finished some other assignments and midterms.
+            </p>
+        </div>
+    </div> 
+</body>
+</html>
