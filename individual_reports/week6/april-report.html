@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>April - Week 6 Report</title>
+    <link rel="stylesheet" href="../../style/report.css">
+</head>
+<body>
+    <div class="report-main">
+        <div class="report-header">
+            <h1>April - Week 6 Report</h1>
+        </div>
+        <div class="report-subsection">
+            <h2>What were your concrete goals for the week?</h2>
+            <p>
+                My goal for the week was to get the graphics client and 
+                server running on the lab computers. Additionally, I 
+                wanted to fix some bugs relating to client disconnects 
+                and how recv is called. Finally, if I had additional time, 
+                I wanted to continue moving game logic from the client to 
+                the server.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What goals were you able to accomplish?</h2>
+            <p>
+                I was able to rewrite the server and client to a) handle 
+                client disconnects gracefully and b) read in packets by 
+                calling recv in a loop. I also moved the logic for the 
+                main camera, minimap camera, cursor movement, and alt key 
+                presses to the server.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>If the week went differently than you had planned, what were the reasons?</h2>
+            <p>
+                I started trying to get the graphics client and server 
+                running on the lab computers on Friday but CMake was being 
+                a pain so I wasn't successful. The plan was to go back to 
+                the lab on Saturday and get all of that figured out, but 
+                something came up and I couldn't go. As such, as of right 
+                now the graphics client and server still don't work on the 
+                lab computers.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What are your specific goals for the next week?</h2>
+            <p>
+                The goal for this coming week is to actually get the graphics client 
+                and server working on the lab computers. If I happen to 
+                accomplish that with some time to spare, I want to get 
+                started on adding multiplayer support to the client and 
+                server. Additionally, for when I have free time but can't 
+                be in the lab, the plan is to fix a bug with the camera 
+                and continue moving game logic to the server.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What did you learn this week, if anything (and did you expect to learn it)?</h2>
+            <p>
+                In the process of trying to run the graphics client and 
+                server on the lab computers using CMake, I'm learning more 
+                about how to use CMake, particularly for Windows. The 
+                compiler doesn't seem to care, however, and continues to 
+                throw up regardless of how I modify the CMake file.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What is your individual morale?</h2>
+            <p>
+                CMake is quickly becoming the bane of my existence and I 
+                have another essay to write, so uh, not exactly looking 
+                forward to this week.
+            </p>
+        </div>
+    </div> 
+</body>
+</html>
