@@ -15,10 +15,18 @@ jobs:
 
       - name: Set up SSH
         run: |
+          set -x
           mkdir -p $HOME/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/github-actions"
           chmod 600 "$HOME/.ssh/github-actions"
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> "$HOME/.ssh/known_hosts"
+          echo "Host: ${{ secrets.SSH_HOST }}"
+          ssh-keyscan -v -H ${{ secrets.SSH_HOST }} >> "$HOME/.ssh/known_hosts"
+
+      - name: Test SSH connection
+        run: |
+          ssh -i $HOME/.ssh/github-actions -o StrictHostKeyChecking=no ${SSH_USERNAME}@${SSH_HOST} "echo connected"
+
+
 
       - name: Deploy via rsync
         run: |
