@@ -1,38 +1,29 @@
-name: Deploy to Server
+name: Deploy to CSE125 Server
 
 on:
   push:
-    branches:
-      - main  
+    branches: [ "main" ] 
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up SSH
-        run: |
-          set -x
-          mkdir -p $HOME/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/github-actions"
-          chmod 600 "$HOME/.ssh/github-actions"
-          echo "Host: ${{ secrets.SSH_HOST }}"
-          ssh-keyscan -v -H ${{ secrets.SSH_HOST }} >> "$HOME/.ssh/known_hosts"
-
-      - name: Test SSH connection
-        run: |
-          ssh -i $HOME/.ssh/github-actions -o StrictHostKeyChecking=no ${SSH_USERNAME}@${SSH_HOST} "echo connected"
-
-
-
-      - name: Deploy via rsync
-        run: |
-          rsync -avz --no-perms --no-owner --no-group --exclude=".git" -e "ssh -i $HOME/.ssh/github-actions" ./ ${SSH_USERNAME}@${SSH_HOST}:/var/www/html/class/cse125/www/2025/cse125g3/group3-website
-        env:
-          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-
-
+    - name: Deploy via SCP
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        SERVER_USER: "jessieou"  
+        SERVER_PORT: "222"
+        REMOTE_PATH: "/var/www/html/class/cse125/www/2025/cse125g3/group3-website"
+      run: |
+        # Set up SSH configuration
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        
+        # Copy files using SCP
+        scp -r -P $SERVER_PORT -o StrictHostKeyChecking=no \
+            * $SERVER_USER@cse125.ucsd.edu:$REMOTE_PATH
