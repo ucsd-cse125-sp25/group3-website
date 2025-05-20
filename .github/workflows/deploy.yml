@@ -12,33 +12,41 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Set up SSH
+    - name: Configure SSH
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
         SERVER_USER: "jessieou"
         SERVER_PORT: "222"
       run: |
+        # Create SSH directory structure
         mkdir -p ~/.ssh
         chmod 700 ~/.ssh
+
+        # Add private key
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/cse125_id_rsa
         chmod 600 ~/.ssh/cse125_id_rsa
-        
-        # Add server fingerprint to known_hosts
-        ssh-keyscan -p $SERVER_PORT cse125.ucsd.edu >> ~/.ssh/known_hosts
-        
+
+        # Add known hosts entry
+        echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+        chmod 644 ~/.ssh/known_hosts
+
         # Create SSH config
-        echo "Host cse125
+        cat << EOF > ~/.ssh/config
+        Host cse125
           HostName cse125.ucsd.edu
           Port $SERVER_PORT
           User $SERVER_USER
           IdentityFile ~/.ssh/cse125_id_rsa
-          StrictHostKeyChecking=yes
-          UserKnownHostsFile ~/.ssh/known_hosts" > ~/.ssh/config
+          StrictHostKeyChecking yes
+          UserKnownHostsFile ~/.ssh/known_hosts
+        EOF
         chmod 600 ~/.ssh/config
 
     - name: Deploy via Rsync
       env:
         REMOTE_PATH: "/var/www/html/class/cse125/www/2025/cse125g3/group3-website"
       run: |
-        rsync -avz --delete -e "ssh -F ~/.ssh/config" \
+        rsync -avz --delete \
+            -e "ssh -F $HOME/.ssh/config" \
             ./ cse125:$REMOTE_PATH/
