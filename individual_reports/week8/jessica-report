@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jessica Yang - Week 8 Report</title>
+    <link rel="stylesheet" href="../../style/report.css">
+</head>
+<body>
+    <div class="report-main">
+        <div class="report-header">
+            <h1>Jessica Yang - Week 8 Report</h1>
+        </div>
+        <div class="report-subsection">
+            <h2>What were your concrete goals for the week?</h2>
+            <p>
+                1. Help with integrate gameplay-npc branch. 
+                2. Work on collision.
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What goals were you able to accomplish?</h2>
+            <p>
+                1. meet with networking people, help with merge code.
+                2. use assimp library to calculate bounding box. 
+                
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>If the week went differently than you had planned, what were the reasons?</h2>
+            <p>
+                Collision need more thing than I expected. The model load we have before only work for .ply file, but we have fbx model. 
+                Also, the one bounding box for human model is easy to do, but for museum map with walls and booth, more adjustment needed. 
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What are your specific goals for the next week?</h2>
+            <p>
+              Finish and test collision. 
+            </p>
+        </div>
+        <div class="report-subsection">
+            <h2>What did you learn this week, if anything (and did you expect to learn it)?</h2>
+            <p>
+              I learned the underlying logic of how collision detection works in a game, 
+              and how to practically implement it.           
+              I also learned how the Assimp library can be used to extract bounding boxes from 3D models to support collision detection.
+          </div>
+        <div class="report-subsection">
+            <h2>What is your individual morale?</h2>
+            <p>
+               Good, but a little bit worried about the overall process. 
+        </div>
+    </div> 
+</body>
+</html>
