@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heist at the Museum - Final Report</title>
+  <link rel="stylesheet" href="./style/index.css">
+  <link rel="stylesheet" href="./style/proj-spec.css">
+  <style>
+    details { margin-bottom: 1em; }
+    nav {
+      background: #fff;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin-right: 15px;
+    }
+    .gallery img {
+      width: 600px;
+      height: auto;
+      margin: 10px;
+      border: 1px solid #ccc;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #f9f9f9;
+      padding: 1em;
+      border: 1px solid #ccc;
+    }
+    section {
+      margin-bottom: 2em;
+    }
+</style>
+</head>
+<body>
+  <h1>Heist at the Museum - Final Report</h1>
+
+  <nav>
+    <strong>Jump to:</strong>
+    <a href="#game-concept">Game Concept</a>
+    <a href="#design">Design</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#environment">Development Environment</a>
+    <a href="#group-mechanics">Group Mechanics</a>
+    <a href="#challenges">Challenges</a>
+    <a href="#pride">Pride</a>
+    <a href="#difficult-problems">Difficult Problems</a>
+    <a href="#toolchain">Toolchain</a>
+    <a href="#libraries">Libraries</a>
+    <a href="#language">Language</a>
+    <a href="#loc">Lines of Code</a>
+    <a href="#dynamics">Group Dynamics</a>
+    <a href="#retrospective">Retrospective</a>
+    <a href="#courses">Courses</a>
+    <a href="#learnings">Valuable Learnings</a>
+    <a href="#feedback">Course Feedback</a>
+    <a href="#advice">Advice</a>
+    <a href="#suggestions">Suggestions</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
+
+  <section id="game-concept">
+  <h2>Game Concept</h2>
+  <p><strong>To what extent did your game concept change from initial concept to what you implemented? If it did change, how did it change and why?</strong></p>
+  <ul>
+    <li>Our initial game concept was a Five Nights at Freddy’s x Night at the Museum game where users get chased by artifacts at night.</li>
+    <li>Eventually, the concept evolved into a ‘security guard vs thieves’ game.</li>
+    <li>This change likely resulted from iterative brainstorming such as “what if we added Z too” or “instead of X, why not try Y instead.”</li>
+    <li>Personally, I'm glad we moved away from the horror concept—I don’t mesh well with anything horror-related :)</li>
+  </ul>
+  </section>
+
+  <section id="design">
+  <h2>Design</h2>
+  <p><strong>How does your final project design compare to the initial design, and what are the reasons for the differences, if any?</strong></p>
+  <ul>
+    <li>The final design was mostly faithful to our original vision.</li>
+    <li>We couldn't include another male thief due to time constraints.</li>
+    <li>The security guard was originally meant to use multiple weapons, but was simplified to a magic ability without visual effects.</li>
+    <li>We planned to emphasize the artifact storyline and motives for theft, but didn’t implement that part.</li>
+  </ul>
+  </section>
+
+  <section id="schedule">
+  <h2>Schedule</h2>
+  <p><strong>How does your final schedule compare with your projected schedule, and what are the reasons for the differences, if any?</strong></p>
+  <ul>
+    <li>Our projected schedule was too optimistic.</li>
+    <li>Challenges included:</li>
+    <ul>
+      <li>Underestimating feature complexity</li>
+      <li>Mac/Windows platform compatibility issues</li>
+      <li>Persistent bugs</li>
+      <li>Conflicts with other class assignments</li>
+    </ul>
+    <li>We aimed to finish by Week 9 and use Week 10 for testing, but completed the game 20 minutes before the presentation.</li>
+  </ul>
+  </section>
+
+  <section id="environment">
+  <h2>Development Environment</h2>
+  <p><strong>Describe your development environment. What tools did you use? What was your build workflow? If you supported multiple platforms, how did you support making your project work on all platforms? Do you have any tips or suggestions for future groups for their development environment?</strong></p>
+  <ul>
+    <li>Development environments: Visual Studio on Windows, VS Code on macOS</li>
+    <li>Used CMake to manage the build process</li>
+    <li>Maintained cross-platform support with preprocessor macros (e.g., <code>#ifdef _WIN32</code>)</li>
+    <li>Regularly tested on both OS platforms to catch platform-specific bugs</li>
+    <li>Suggestions for future groups:</li>
+    <ul>
+      <li>Keep platform-specific code isolated and well-documented</li>
+      <li>Use Git for version control to prevent merge conflicts</li>
+    </ul>
+  </ul>
+  </section>
+
+  <section id="group-mechanics">
+  <h2>Group Mechanics</h2>
+  <p><strong>What group mechanics decisions worked out well, and which ones (if any) did not? Why?</strong></p>
+  <ul>
+    <li>We held group meetings over Discord, but remote meetings limited early bonding.</li>
+    <li>Audio/technical issues occurred that would’ve been avoided with in-person meetings.</li>
+    <li>We structured work into modules, which caused integration problems later.</li>
+  </ul>
+</section>
+
+<section id="challenges">
+  <h2>Challenges</h2>
+  <p><strong>Which aspects of the implementation were more difficult than you expected, and which were easier? Why?</strong></p>
+  <ul>
+    <li>3D model export/import was more complex than expected, especially coordinating formats between modeling and graphics teams.</li>
+    <li>Assimp’s data structure for bones/animations was non-intuitive.</li>
+    <li>Cross-platform consistency was a constant challenge—small assumptions caused significant delays.</li>
+    <li>ImGUI layout was easy to use, but we had to constrain to fullscreen to avoid misalignment.</li>
+    <li>Integrating Miniaudio and SoLoud for sound took several hours to work properly.</li>
+    <li>The 2D mini-game was easier to implement in isolation, but difficult to merge due to:</li>
+    <ul>
+      <li>OpenGL version mismatches (2.1 vs 3.3)</li>
+      <li>Upside-down textures during merging</li>
+      <li>Needing to adjust parameters like gravity and scaling post-integration</li>
+    </ul>
+    <li>Server/client debugging was harder than anticipated due to unfamiliarity with the code and firewalls.</li>
+    <li>We simulated NPC behavior using randomness rather than AI—simple and effective.</li>
+  </ul>
+</section>
+
+<section id="pride">
+  <h2>Pride</h2>
+  <p><strong>Which aspects of the project are you particularly proud of? Why?</strong></p>
+  <ul>
+    <li>Heather: Proud of creating two high-poly + normal map character models in just one week.</li>
+    <li>Sue: Developed a system to avoid duplicate texture loads based on texture name; structured models, meshes, and instances cleanly for easier edits.</li>
+    <li>April: Proud of writing most of the server/client code. Initial issues were resolved and the baseline system allowed easy addition of logic.</li>
+    <li>Jessica: Pleased that special gameplay components worked with the rest of the game. Happy we resolved many bugs despite some still remaining.</li>
+    <li>Shuyang: Proud of blending multiple features (abilities, 2D mini-game, asymmetric mechanics) into a coherent game. Most original ideas were implemented.</li>
+    <li>Angie: Also proud of the packet design and server/client work.</li>
+    <li>Jessie: Liked the UI design and audio selection. Though integration had issues, the system was eventually shown and merged after the demo.</li>
+  </ul>
+</section>
+
+<section id="difficult-problems">
+  <h2>Difficult Problems</h2>
+  <p><strong>What was the most difficult software problem you faced, and how did you overcome it (if you did)?</strong></p>
+  <ul>
+    <li>April: Had to integrate unfamiliar code into the server/client model. Solved it by studying and running the original code to understand it thoroughly.</li>
+    <li>Shuyang: OpenGL Immediate Mode was unsupported. GPT helped identify the issue. Fixed by switching to Core Profile (VAO, VBO, shaders).</li>
+    <li>Jessica: Transitioning from local gameplay to networking was tough. Gained understanding by reading and testing the networking code.</li>
+    <li>Angie: Misunderstood client code, causing bugs during server/client integration. Adjusted to send server coordinates and scale on client, though bugs remained.</li>
+    <li>Sue: Debugging animations in Assimp was difficult. Used various strategies (CPU validation, color-coded debugging) and found format issues (e.g., mesh as bone, unsupported Blender methods).</li>
+    <li>Jessie: Integration on Windows was hard due to late testing. Game size and compile time made it difficult to debug effectively under time pressure.</li>
+  </ul>
+</section>
+
+<section id="toolchain">
+  <h2>Toolchain</h2>
+  <p><strong>Please detail your tool chain for modeling, exporting, and loading meshes, textures, and animations. What is your opinion of the tools you used?</strong></p>
+  <ul>
+    <li>Blender used for modeling, texturing, animation. Required baking textures into images for compatibility. Preferred for being free and easier than Maya.</li>
+    <li>Assimp used to import models, animations, textures. Traversal logic and matrix calculations are essential for rendering hierarchy correctly.</li>
+    <li>Issues encountered:</li>
+    <ul>
+      <li>Meshes inside meshes cause missing nodes in FBX exports.</li>
+      <li>Assimp structure can be unclear—must traverse nodes, not just meshes.</li>
+      <li>Animation debugging was difficult and tedious.</li>
+      <li>Recommended to use vertex weights, not meshes as bones.</li>
+      <li>Paths must be exported as relative; Windows paths cause Mac compatibility issues.</li>
+    </ul>
+    <li>Documentation was lacking—suggest learning from past users or examples.</li>
+  </ul>
+</section>
+
+<section id="libraries">
+  <h2>Libraries</h2>
+  <p><strong>Which libraries did you use and would you use them again if you were starting over? What lessons did you learn using them?</strong></p>
+  <ul>
+    <li>Networking: Used raw sockets instead of Boost due to Boost’s poor documentation. Raw sockets were educational and helped us understand networking layers better.</li>
+    <li>GUI: Used ImGui. Once set up, it was intuitive. Important to swap buffers only once after game and GUI rendering to avoid flickering.</li>
+    <li>Audio: Started with Miniaudio but switched to SoLoud (Miniaudio backend). Miniaudio only supports WAV, so we used Audacity to convert files. Found sound assets from YouTube Audio Library.</li>
+  </ul>
+</section>
+
+<section id="language">
+  <h2>Language</h2>
+  <p><strong>If you used an implementation language other than C++, describe the environments, libraries, and tools you used to support development in that language. What issues did you run into? Would you recommend the language for future groups?</strong></p>
+  <ul>
+    <li>We used C++ exclusively for this project.</li>
+    <li>We also used GLSL for shader programming and a small amount of ImGui API code.</li>
+    <li>No non-C++ language was used, so this question was not applicable in our case.</li>
+  </ul>
+</section>
+
+<section id="loc">
+  <h2>Lines of Code</h2>
+  <p><strong>How many lines of code did you write for your project? State how you counted.</strong></p>
+  <ul>
+    <li>Approximately 20,000 lines.</li>
+    <li>We used the command <code>cloc .</code> in our root directory, excluding external dependencies.</li>
+    <li>This number includes source code, shaders, header files, and scripting used in build systems or content tools.</li>
+  </ul>
+</section>
+
+<section id="dynamics">
+  <h2>Group Dynamics</h2>
+  <p><strong>What lessons about group dynamics did you learn about working in such a large group over an extended period of time on a challenging project?</strong></p>
+  <ul>
+    <li>Splitting into smaller working groups helped with parallel development.</li>
+    <li>Communication was key; delays often stemmed from misunderstandings or assumptions.</li>
+    <li>Using Discord channels to separate topic threads (UI, graphics, netcode, testing) worked well.</li>
+    <li>In-person syncs could have accelerated progress during integration-heavy weeks.</li>
+  </ul>
+</section>
+
+<section id="retrospective">
+  <h2>Retrospective</h2>
+  <p><strong>Looking back over the past 10 weeks, is there anything you would do differently, and what would you do again in the same situation?</strong></p>
+  <ul>
+    <li>Would test the game on Windows earlier in the quarter.</li>
+    <li>Would finalize and merge code earlier to avoid last-minute issues.</li>
+    <li>Would still go with our project concept—it made the project exciting and meaningful.</li>
+    <li>Would again use Discord and GitHub, which were effective collaboration tools.</li>
+  </ul>
+</section>
+
+<section id="courses">
+  <h2>Courses</h2>
+  <p><strong>Which courses at UCSD do you think best prepared you for CSE 125?</strong></p>
+  <ul>
+    <li>CSE 100: Data Structures — helped organize code and handle systems like collision detection and resource management.</li>
+    <li>CSE 110: Software Engineering — helped with documentation, modularization, and Git practices.</li>
+    <li>CSE 120: Operating Systems — aided understanding of concurrency and synchronization in networking.</li>
+    <li>CSE 167: Computer Graphics — essential for working with rendering, shaders, camera transformations.</li>
+    <li>CSE 124: Networking — fundamental knowledge for building our client/server model.</li>
+  </ul>
+</section>
+
+<section id="learnings">
+  <h2>Valuable Learnings</h2>
+  <p><strong>What were the most valuable things that you learned in the class?</strong></p>
+  <ul>
+    <li>Understanding the complexity of game development at scale.</li>
+    <li>Practicing cross-platform debugging and performance profiling.</li>
+    <li>Learning to integrate audio, input, UI, physics, rendering, and networking into a single application.</li>
+    <li>Appreciating group coordination and responsibility balancing under pressure.</li>
+  </ul>
+</section>
+
+<section id="feedback">
+  <h2>Course Feedback</h2>
+  <p><strong>For the pizza celebration after the demos, what did you think about having it in the B270 lab so that people can play each other's games?</strong></p>
+  <ul>
+    <li>We liked the idea of having the celebration in B270. It made it easy to try out other teams’ games right after watching the presentations.</li>
+    <li>It gave us a chance to relax, socialize, and appreciate each other’s hard work in a familiar setting.</li>
+  </ul>
+</section>
+
+<section id="advice">
+  <h2>Advice</h2>
+  <p><strong>What advice/tips/suggestions would you give students who will take the course next year?</strong></p>
+  <ul>
+    <li>Start integration as early as possible, even if the pieces aren’t fully polished.</li>
+    <li>Regularly test the entire system, not just your part.</li>
+    <li>Use version control carefully and branch responsibly.</li>
+    <li>Stick to a weekly schedule and overcommunicate assumptions.</li>
+    <li>Playtest with users early for feedback.</li>
+  </ul>
+</section>
+
+<section id="suggestions">
+  <h2>Suggestions</h2>
+  <p><strong>Do you have any suggestions for improving the course? Any other comments or feedback?</strong></p>
+  <ul>
+    <li>Would be helpful to have access to B270 during the last two weekends (especially with keycard access or longer hours).</li>
+    <li>Offering tutorial sessions or example code for integrating major subsystems (e.g., sound, animation) could reduce the initial learning curve.</li>
+  </ul>
+</section>
+
+<section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="images/final_report/character_selection.png" alt="Character Selection">
+      <img src="images/final_report/character_selection_guard.png" alt="Character Selection (Guard)">
+      <img src="images/final_report/in_game.png" alt="In Game 1">
+      <img src="images/final_report/in_game2.png" alt="In Game 2">
+      <img src="images/final_report/mini_game.png" alt="Mini Game">
+      <img src="images/final_report/start_menu.png" alt="Start Menu">
+    </div>
+  </section>
+</body>
+</html>
